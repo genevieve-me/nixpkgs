@@ -34,6 +34,9 @@ buildPythonPackage rec {
   };
 
   patches = [
+    # shrink TCP buffer window before connecting, so test passes on kernel>=6.6
+    # from https://github.com/eventlet/eventlet/pull/905
+    ./greenio-test.patch    
     # Python 3.12 fixes:
     # - remove usage of distutils
     # - replace ssl.wrap_socket usage

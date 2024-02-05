@@ -1,0 +1,14 @@
+diff --git a/tests/greenio_test.py b/tests/greenio_test.py
+index ce87cf5..b4bce02 100644
+--- a/tests/greenio_test.py
++++ b/tests/greenio_test.py
+@@ -417,8 +417,8 @@ class TestGreenSocket(tests.LimitedTestCase):
+ 
+         server_evt = eventlet.spawn(server)
+         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+-        client.connect(('127.0.0.1', listener.getsockname()[1]))
+         bufsized(client)
++        client.connect(('127.0.0.1', listener.getsockname()[1]))
+         large_evt = eventlet.spawn(read_large, client)
+         eventlet.sleep(0)
+         client.sendall(b'hello world')
